@@ -3,6 +3,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 ffmpeg-master-latest-win64-gpl/
+*.webm
+*.mp3
+*.mp4
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
