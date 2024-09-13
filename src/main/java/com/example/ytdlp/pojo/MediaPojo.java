@@ -1,4 +1,4 @@
-package com.example.ytdlp;
+package com.example.ytdlp.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

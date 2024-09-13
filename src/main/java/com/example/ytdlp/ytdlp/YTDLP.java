@@ -1,16 +1,13 @@
 package com.example.ytdlp.ytdlp;
 
-import com.example.ytdlp.MediaPojo;
-import com.example.ytdlp.MediasPojo;
+import com.example.ytdlp.pojo.MediaPojo;
+import com.example.ytdlp.pojo.MediasPojo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.awt.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -36,7 +33,7 @@ public class YTDLP {
     }
 
     public String getJson(String url){
-        return sendRequest(new String[]{".\\yt-dlp.exe",  "--no-warnings", "-J", url});
+        return sendRequest(new String[]{pathYTDLP+"yt-dlp.exe",  "--no-warnings", "-J", url});
     }
 
     public List<Media> createMedia(String url) throws JsonProcessingException {
@@ -47,18 +44,18 @@ public class YTDLP {
         objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
         try{
-            MediasPojo test = objectMapper.readValue(sendRequest(new String[]{".\\yt-dlp.exe", "--flat-playlist", "--no-warnings", "-J", url}), MediasPojo.class);
+            MediasPojo test = objectMapper.readValue(sendRequest(new String[]{pathYTDLP+"yt-dlp.exe", "--flat-playlist", "--no-warnings", "-J", url}), MediasPojo.class);
 
             for (int i = 0; i < test.getMediasPojos().length; i++){
 
-                MediaPojo temp = objectMapper.readValue(sendRequest(new String[]{".\\yt-dlp.exe", "--no-warnings", "-j", test.getMediasPojos()[i].getMediaUrl()}), MediaPojo.class);
+                MediaPojo temp = objectMapper.readValue(sendRequest(new String[]{pathYTDLP+"yt-dlp.exe", "--no-warnings", "-j", test.getMediasPojos()[i].getMediaUrl()}), MediaPojo.class);
 
                 list.add(new Media(temp.getMediaUrl(), temp.getThumbnailUrl(), temp.getDescription(), temp.getTitle(), temp.getUrlDomain(), temp.getUploadDate()
                         , temp.getChannel(), temp.getLikeNb(), temp.getDuration()));
             }
 
         } catch (Exception e) {
-            MediaPojo test = objectMapper.readValue(sendRequest(new String[]{".\\yt-dlp.exe", "--no-warnings", "-J", url}), MediaPojo.class);
+            MediaPojo test = objectMapper.readValue(sendRequest(new String[]{pathYTDLP+"yt-dlp.exe", "--no-warnings", "-J", url}), MediaPojo.class);
             list.add(new Media(test.getMediaUrl(), test.getThumbnailUrl(), test.getDescription(), test.getTitle(), test.getUrlDomain(), test.getUploadDate()
                     , test.getChannel(), test.getLikeNb(), test.getDuration()));
         }
@@ -71,7 +68,7 @@ public class YTDLP {
         for (Media current : media){
             downloadMedia(current);
 
-            if (current.isNeedConvert()){
+            if (current.isNeedConvert() && !simulate){
                 convertMedia(current);
             }
         }
@@ -85,7 +82,11 @@ public class YTDLP {
 
         List<String> list = new LinkedList<>();
 
-        list.add(".\\yt-dlp.exe");
+        list.add(pathYTDLP+"yt-dlp.exe");
+
+        if (simulate){
+            list.add("-s");
+        }
 
         if (pathFFMPEG != null){
             list.add("--ffmpeg-location");
@@ -103,11 +104,11 @@ public class YTDLP {
     }
 
     public String getVersion(){
-        return sendRequest(new String[]{".\\yt-dlp.exe", "--version"});
+        return sendRequest(new String[]{pathYTDLP+"yt-dlp.exe", "--version"});
     }
 
     public void update(){
-        sendRequest(new String[]{".\\yt-dlp.exe", "--update"});
+        sendRequest(new String[]{pathYTDLP+"yt-dlp.exe", "--update"});
     }
 
     public String sendRequest(String[] request){
@@ -140,7 +141,7 @@ public class YTDLP {
     }
 
     public void convertMedia(Media media){
-        sendRequest(new String[]{".\\ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe", "-i", media.getTitle()+".webm", "-b:a", media.getBitRate() + " k", media.getTitle()+"."+media.getExt()});
+        sendRequest(new String[]{pathFFMPEG+"ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe", "-i", media.getTitle()+".webm", "-b:a", media.getBitRate() + " k", media.getTitle()+"."+media.getExt()});
     }
 
 }

@@ -1,12 +1,12 @@
-package com.example.ytdlp;
+package com.example.ytdlp.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MediasPojo {
     @JsonProperty("entries")
-    private MediaPlaylist[] mediasPojos;
+    private MediaPlaylistPojo[] mediasPojos;
 
-    public MediaPlaylist[] getMediasPojos() {
+    public MediaPlaylistPojo[] getMediasPojos() {
         return mediasPojos;
     }
 }
