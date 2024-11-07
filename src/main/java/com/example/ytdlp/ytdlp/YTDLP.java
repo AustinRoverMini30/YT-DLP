@@ -141,7 +141,7 @@ public class YTDLP {
     }
 
     public void convertMedia(Media media){
-        sendRequest(new String[]{pathFFMPEG+"ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe", "-i", media.getTitle()+".webm", "-b:a", media.getBitRate() + " k", media.getTitle()+"."+media.getExt()});
+        sendRequest(new String[]{pathFFMPEG+"ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe", "-i", media.getTitle()+".webm", "-b:a", media.getBitRate() + " k", media.getTitle()+media.getExt()});
     }
 
 }

@@ -26,6 +26,13 @@
             <version>22-ea+11</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.sejda.imageio/webp-imageio -->
+        <dependency>
+            <groupId>org.sejda.imageio</groupId>
+            <artifactId>webp-imageio</artifactId>
+            <version>0.1.6</version>
+        </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -60,7 +67,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.ytdlp/com.example.ytdlp.Main</mainClass>
+                            <mainClass>com.example.ytdlp/com.example.ytdlp.MINI_Downloader</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

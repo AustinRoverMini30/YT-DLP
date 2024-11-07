@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #141526;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ytdlp.controller.HomeController">
+<Pane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ytdlp.controller.HomeController">
    <children>
-      <ImageView fx:id="thumbnail" fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField layoutX="320.0" layoutY="436.0" prefHeight="43.0" prefWidth="1301.0" />
+      <Pane fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #141526;">
+         <children>
+            <ImageView fx:id="thumbnail" fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane layoutX="320.0" layoutY="436.0">
+               <children>
+                  <TextField fx:id="labelUrl" prefHeight="43.0" prefWidth="1301.0" />
+               </children>
+            </Pane>
+            <Button fx:id="download" layoutX="341.0" layoutY="515.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="152.0" text="Télécharger" />
+         </children>
+      </Pane>
    </children>
 </Pane>

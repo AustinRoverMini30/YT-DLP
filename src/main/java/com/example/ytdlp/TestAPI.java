@@ -12,19 +12,16 @@ public class TestAPI {
 
         ytdlp.update();
 
-        System.out.println(ytdlp.getJson("https://youtu.be/3-NrCcr8Bcg?si=MnPHx2F7-F5DHb_Q"));
+        //System.out.println(ytdlp.getJson("https://youtu.be/U9FzgsF2T-s?si=FYsP4fdTgZIoHFr-"));
 
         //b ytdlp.setSimulate(true);
 
-        //List<Media> test = ytdlp.createMedia("https://youtu.be/3-NrCcr8Bcg?si=MnPHx2F7-F5DHb_Q");
+        List<Media> test = ytdlp.createMedia("https://youtu.be/x76L5vO8ugU?si=0v0uribn7boeKn0v");
 
-        /*
         for (Media media : test){
-            media.setExt(".mp4");
+            media.setExt(".mp3");
         }
 
-         */
-
-        //ytdlp.downloadMedia(test);
+        ytdlp.downloadMedia(test);
     }
 }
