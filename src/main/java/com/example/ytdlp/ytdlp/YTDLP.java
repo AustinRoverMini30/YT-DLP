@@ -75,7 +75,7 @@ public class YTDLP {
     }
 
     public void downloadMedia(Media media){
-        downloadMedia(new String[] {}, media.getMediaUrl(), new String[]{"-o" , "\"" + media.getFilename() + "\""});
+        downloadMedia(new String[] {}, media.getMediaUrl(), new String[]{"-o" , "\"" + media.getFilename() + ".webm" + "\""});
     }
 
     public void downloadMedia(String[] antOptions, String url, String[] postOptions){
@@ -141,7 +141,7 @@ public class YTDLP {
     }
 
     public void convertMedia(Media media){
-        sendRequest(new String[]{pathFFMPEG+"ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe", "-i", media.getTitle()+".webm", "-b:a", media.getBitRate() + " k", media.getTitle()+media.getExt()});
+        sendRequest(new String[]{pathFFMPEG+"ffmpeg-master-latest-win64-gpl\\bin\\ffmpeg.exe", "-i", media.getFilename()+".webm", "-b:a", media.getBitRate() + " k", media.getFilename()+media.getExt()});
     }
 
 }

@@ -66,7 +66,7 @@ public class HomeController {
 
             thumbnail.setImage(new Image(is));
 
-            //ytdlp.downloadMedia(test);
+            ytdlp.downloadMedia(test);
         });
     }
 

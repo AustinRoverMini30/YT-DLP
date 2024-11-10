@@ -70,7 +70,7 @@ public class Media {
         this.likeNb = likeNb;
         this.duration = duration;
 
-        this.filename = "%(title)s.%(ext)s";
+        this.filename = title.replaceAll("[\\\\/:*?\"<>|]", " ");;
 
         this.ext = "webm";
         this.bitRate = 320;
