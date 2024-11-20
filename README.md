@@ -24,46 +24,6 @@ Un téléchargeur YouTube puissant et intuitif développé en JavaFX, utilisant 
 
 ---
 
-## Installation
-
-1. Clonez le projet sur votre machine :
-   ```bash
-   git clone https://github.com/your-username/youtube-downloader.git
-   cd youtube-downloader
-   ```
-
-2. Placez l'exécutable YT-DLP dans le répertoire du projet ou configurez le chemin dans les paramètres du programme.
-
-3. Téléchargez et placez **FFmpeg** dans un dossier accessible via le `PATH` système ou configurez son chemin dans le programme.
-
-4. Lancez l'application :
-   ```bash
-   java -jar YouTubeDownloader.jar
-   ```
-
----
-
-## Utilisation
-
-1. Ajoutez une URL YouTube (ou une playlist).
-2. Sélectionnez le format vidéo ou audio souhaité.
-3. Cliquez sur **Télécharger**.
-4. Accédez au dossier de téléchargement pour récupérer vos fichiers.
-
-![Capture d'écran - Écran principal](#) <!-- Ajouter une capture d'écran ici -->
-
----
-
-## Captures d'écran
-
-### Écran principal
-![Capture d'écran - Écran principal](#)
-
-### Options avancées
-![Capture d'écran - Options avancées](#)
-
----
-
 ## Copyright et Avertissements
 
 - Ce projet utilise [YT-DLP](https://github.com/yt-dlp/yt-dlp), un outil open-source. Consultez leur [documentation](https://github.com/yt-dlp/yt-dlp#license) pour en savoir plus sur les droits et restrictions.
